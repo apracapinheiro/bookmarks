@@ -1,0 +1,6 @@
+.idea/
+#/static/
+#/media/
+#bancodopovo/settings_local.py
+/venv_bookmarks/
+*.sqlite3
