@@ -4,5 +4,12 @@
 
 {% block content %}
     <h1>Dashboard</h1>
-    <p>Bem vindo ao seu dashboard.</p>
+    {% with total_images_created=request.user.images_created.count %}
+        <p>Bem vindo ao seu dashboard. Você tem marcado {{ total_images_created }} imagem{{ total_images_created|pluralize }}.</p>
+    {% endwith %}
+
+    <p>Arraste o seguinte botão para a sua barra de ferraments de marcação para marcar imagens de outros sites →
+        <a href="javascript:{% include "bookmarklet_ launcher.js" %}" class="button">Bookmark!</a><p>
+    <p>Você pode <a href="{% url "edit" %}">editar seus dados</a> ou
+        <a href="{% url "password_change" %}">alterar sua senha</a>.</p>
 {% endblock %}
